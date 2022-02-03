@@ -1,0 +1,19 @@
+{
+  "name": "graphql-smart",
+  "author": "Scipio14 - Federico Macías",
+  "private": true,
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "server": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "4.17.2",
+    "express-graphql": "0.12.0",
+    "graphql": "16.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "2.0.15"
+  }
+}
