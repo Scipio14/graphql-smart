@@ -14,6 +14,14 @@ const schema = buildSchema(`
   }
   type Mutation{
     updateCourseTopic(id:Int!,topic:String!):Course
+    addCourse(
+      id:Int!,
+      title:String!,
+      author:String!,
+      description:String,
+      topic:String!,
+      url:String,
+    ):String!
   }
 
   type Course{
@@ -83,11 +91,26 @@ const updateCourseTopic = ({ id, topic }) => {
   return coursesData.filter((course) => course.id === id)[0];
 };
 
+const addCourse = ({ id, title, author, description, topic, url }) => {
+  const newCourse = {
+    id,
+    title,
+    author,
+    description,
+    topic,
+    url,
+  };
+  coursesData.push(newCourse);
+  //console.log(coursesData);
+  return "New course added";
+};
+
 //Create the resolvers
 const resolvers = {
   course: getCourse,
   courses: getCourses,
   updateCourseTopic: updateCourseTopic,
+  addCourse,
 };
 
 //Create the express and graphql server
